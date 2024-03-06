@@ -24,7 +24,6 @@
                     string tc = GetTicketCategory();
                     tickets.AddTicketToList(tc);
                 }
-                //tickets.GetAllTicketsFromList();
 
             }
             tickets.GetAllTicketsFromList();
@@ -65,12 +64,7 @@
             }
             while (true);
         }
-        /*
-         * Körde med en while loop istället för do-while.
-         * Är bara en input som skall hanteras och break ignorerar
-         * bool i while. Föredrar do-while men lade in en while här
-         * för jag är lite nyfiken på ev input på just while i denna. 
-         */
+
         public static int GetNumberOfTickets()
         {
             Console.Write("Number of tickets: ");
