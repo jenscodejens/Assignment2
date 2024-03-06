@@ -2,23 +2,30 @@
 {
     internal class Utilities
     {
-        public static void AddOneTicket()
-        {
-            var tickets = new TicketList();
-            string tc = GetTicketCategory();
-            tickets.AddTicketToList(tc);
-            TotalTicketCost();
-            Console.ReadLine();
-        }
-
-        public static void AddManyTickets(int num)
+        /// <summary>
+        /// Functionionaly is decided by a bool input parameter included in the caller method TicketSubMenu();
+        /// </summary>
+        /// <param name="oneTicketOnly">True for multi ticket purchase. False for single ticket purchase</param>
+        /// <returns></returns>
+        public static void PurchaseTicket(bool oneTicketOnly)
         {
             var tickets = new TicketList();
 
-            for (int i = 0; i < num; i++)
+            if (oneTicketOnly == true)
             {
                 string tc = GetTicketCategory();
                 tickets.AddTicketToList(tc);
+            }
+            else
+            {
+                int num = GetNumberOfTickets();
+                for (int i = 0; i < num; i++)
+                {
+                    string tc = GetTicketCategory();
+                    tickets.AddTicketToList(tc);
+                }
+                //tickets.GetAllTicketsFromList();
+
             }
             tickets.GetAllTicketsFromList();
             TotalTicketCost();
@@ -64,20 +71,21 @@
          * bool i while. Föredrar do-while men lade in en while här
          * för jag är lite nyfiken på ev input på just while i denna. 
          */
-        public static void GetNumberOfTickets()
+        public static int GetNumberOfTickets()
         {
-            while (true)
+            Console.Write("Number of tickets: ");
+            do
             {
-                Console.Write("Number of tickets: ");
                 string input = Console.ReadLine()!;
 
                 if (int.TryParse(input, out int result) && (result >= 2 && result <= 10))
                 {
-                    AddManyTickets(result);
-                    break;
+                    return result;
                 }
                 ClearPreviousConsoleLine();
+                Console.Write("Number of tickets: ");
             }
+            while (true);
         }
 
         private static void TotalTicketCost()

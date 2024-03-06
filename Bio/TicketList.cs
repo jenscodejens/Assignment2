@@ -20,10 +20,10 @@ namespace Bio
         }
         public string GetAllTicketsFromList()
         {
+            sb.Length = 0;
+            sb.Capacity = 0;
             foreach (Ticket ticket in tickets)
             {
-                sb.Length = 0;
-                sb.Capacity = 0;
                 sb.Append(ticket.ToString());
 
             }

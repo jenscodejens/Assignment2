@@ -32,7 +32,6 @@ namespace Bio
                 Console.Write("Type your phrase: ");
             }
             while (true);
-            Console.ReadLine();
         }
     }
 }

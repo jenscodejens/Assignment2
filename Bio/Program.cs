@@ -75,10 +75,10 @@ namespace Bio
                         switch (menuInput)
                         {
                             case '1':
-                                Utilities.AddOneTicket();
+                                Utilities.PurchaseTicket(true);
                                 break;
                             case '2':
-                                Utilities.GetNumberOfTickets();
+                                Utilities.PurchaseTicket(false);
                                 break;
                             case '3':
                                 StandardMessages.ToPreviousMenu();
